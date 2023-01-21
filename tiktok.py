@@ -2,6 +2,7 @@
 #This script was made for educational purposes. I am not responsible for your actions using this script. This code is a few months old, hence why it may not appear as professional but still works to this day.
 try:
     from selenium import webdriver
+    from webdriver_manager.chrome import ChromeDriverManager
     import time, os, ctypes, requests
     from colorama import Fore, init
     import warnings, selenium, platform
@@ -42,7 +43,7 @@ class automator:
             "shares": "/html/body/div[4]/div[1]/div[3]/div/div[5]/div/button"
         }
         try:
-            self.driver = webdriver.Chrome(options = options)
+            self.driver = webdriver.Chrome(executable_path = ChromeDriverManager().install(), options = options)
         except Exception as e:
             self.error(f"Error trying to load web driver: {e}")
         self.status = {}
